@@ -5,6 +5,9 @@ inputs:
     description: 'JSON (as string) from secrets'
     required: true
     default: ''  
+outputs:
+  filePath:
+    description: 'Path to dotenv file'
 runs:
   using: 'node12'
   main: 'index.js'

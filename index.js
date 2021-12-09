@@ -1,11 +1,25 @@
 const core = require('@actions/core')
-const github = require('@actions/github')
+const fs = require('fs')
+const path = require('path')
 
 try {
-    const secrets = core.getInput('secrets')
-    console.log(JSON.parse(secrets))
+    const secrets = JSON.parse(core.getInput('secrets') || {})
 
+    console.log(secrets)
 
+    let data = ''
+
+    for (const {key, value} of Object.entries(secrets)) {
+        data += `${key}=${value}\n`
+    }
+
+    const file = path.resolve(__dirname, '..', '.env')
+
+    fs.writeFileSync(file, data)
+
+    core.info(`Wrote ${Object.keys(secrets).length} secrets to ${file}`)
+    
+    core.setOutput('filePath', file)
 } catch (error) {
     core.setFailed(error.message)
 }
