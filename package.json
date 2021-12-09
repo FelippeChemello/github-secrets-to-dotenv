@@ -1,0 +1,12 @@
+{
+  "name": "github-secrets-to-dotenv",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:FelippeChemello/github-secrets-to-dotenv.git",
+  "author": "Felippe Chemello <felippechemello@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0"
+  }
+}

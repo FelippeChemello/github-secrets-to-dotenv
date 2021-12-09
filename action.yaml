@@ -1,0 +1,10 @@
+name: 'Github secrets to dotenv file'
+description: 'Generate dotenv file with all secrets setted in github secrets'
+inputs:
+  secrets:
+    description: 'JSON (as string) from secrets'
+    required: true
+    default: ''  
+runs:
+  using: 'node12'
+  main: 'index.js'
