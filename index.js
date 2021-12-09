@@ -3,7 +3,7 @@ const github = require('@actions/github')
 
 try {
     const secrets = core.getInput('secrets')
-    console.log(secrets, github.context.payload)
+    console.log(JSON.parse(secrets))
 
 
 } catch (error) {

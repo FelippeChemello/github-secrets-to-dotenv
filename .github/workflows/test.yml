@@ -1,0 +1,20 @@
+name: Testing action
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: Set Github Secrets as Env variables
+              uses: felippechemello/github-secrets-to-dotenv@0.0.1
+              with:
+                  secrets: ${{ toJson(secrets) }}
+
